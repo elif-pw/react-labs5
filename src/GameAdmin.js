@@ -8,6 +8,8 @@ class GameAdmin extends React.Component {
         this.state = {
             name1: '',
             name2: '',
+            isplaying1:false,
+            isplaying2:false,
             times1: 0,
             times2: 0
         }
@@ -20,17 +22,42 @@ class GameAdmin extends React.Component {
         this.setState({name2: e.target.value})
     }
 
+    onClickPlayer1 = (e)=>{
+        if(this.state.isplaying1==false)
+        {
+            this.setState({isplaying2:false, isplaying1:true})
+        }
+    }
+
+    onClickPlayer2 = (e)=>{
+        if(this.state.isplaying2==false) {
+            this.setState({isplaying2: true, isplaying1: false})
+        }
+    }
+
     render() {
         return (<div>
             <fieldset>
-                <PlayerOne name1={this.state.name1}/>
+                <PlayerOne name1={this.state.name1} onClickPlayer1={this.onClickPlayer1}
+                isPlaying1={this.state.isplaying1}/>
+
             </fieldset>
             <fieldset>
-                <PlayerTwo name2={this.state.name2}/>
+                <PlayerTwo name2={this.state.name2} onClickPlayer2={this.onClickPlayer2}
+                           isPlaying2={this.state.isplaying2}/>
             </fieldset>
 
+
+            <br/>
+            <b>Set Name of Player One   </b>
             <input name1={this.state.name1} onChange={this.onChangeName1}/>
+            <br/>
+            <br/>
+            <b>Set Name of Player Two   </b>
             <input name2={this.state.name2} onChange={this.onChangeName2}/>
+            <br/>
+
+
         </div>)
     }
 }
