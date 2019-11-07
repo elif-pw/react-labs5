@@ -1,7 +1,15 @@
 import React from 'react'
+import GameAdmin from "./GameAdmin";
 
 const App = () => (
-  <h1>Minimal React</h1>  
+    <div>
+        <fieldset>
+        <GameAdmin/>
+        </fieldset>
+    </div>
 )
+
+
+
 
 export default App
