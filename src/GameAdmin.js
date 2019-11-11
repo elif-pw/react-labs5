@@ -22,16 +22,34 @@ class GameAdmin extends React.Component {
         this.setState({name2: e.target.value})
     }
 
-    onClickPlayer1 = (e)=>{
-        if(this.state.isplaying1==false)
-        {
-            this.setState({isplaying2:false, isplaying1:true})
+    // onClickPlayer1 = (e)=>{
+    //     if(this.state.isplaying1==false)
+    //     {
+    //         this.setState({isplaying2:false, isplaying1:true, times1:this.state.times1+1})
+    //     }
+    // }
+    onClickPlayer1 =(e)=> {
+        if ( this.state.isplaying1 == false) {
+            this.setState(prevState => ({
+                isplaying2: false, isplaying1: true,
+                times1: prevState.times1 + 1
+            }))
         }
     }
 
-    onClickPlayer2 = (e)=>{
-        if(this.state.isplaying2==false) {
-            this.setState({isplaying2: true, isplaying1: false})
+    // onClickPlayer2 = (e)=>{
+    //
+    //     if(this.state.isplaying2==false) {
+    //         this.setState({isplaying2: true, isplaying1: false, times2:this.state.times2+1})
+    //     }
+    // }
+
+    onClickPlayer2 =(e)=> {
+        if ( this.state.isplaying2 == false) {
+            this.setState(prevState => ({
+                isplaying1: false, isplaying2: true,
+                times2: prevState.times2 + 1
+            }))
         }
     }
 
@@ -39,12 +57,12 @@ class GameAdmin extends React.Component {
         return (<div>
             <fieldset>
                 <PlayerOne name1={this.state.name1} onClickPlayer1={this.onClickPlayer1}
-                isPlaying1={this.state.isplaying1}/>
+                isPlaying1={this.state.isplaying1} times1={this.state.times1}/>
 
             </fieldset>
             <fieldset>
                 <PlayerTwo name2={this.state.name2} onClickPlayer2={this.onClickPlayer2}
-                           isPlaying2={this.state.isplaying2}/>
+                           isPlaying2={this.state.isplaying2} times2={this.state.times2}/>
             </fieldset>
 
 
