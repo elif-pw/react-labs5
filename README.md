@@ -1,3 +1,7 @@
+Check out 
+https://ozdemire.netlify.com/
+
+
 # react-minimal
 React Minimal template
 
