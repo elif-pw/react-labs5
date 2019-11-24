@@ -12,7 +12,7 @@ class PlayerTwo extends React.Component {
             <label>Times played:  </label>
             <b> {this.props.times2}</b>
             <br/>
-            <button onClick={(e)=>this.props.onClickPlayer2(e)}>
+            <button onClick={(e)=>this.props.onClickPlayer2(e)} disabled={this.props.isPlaying2}>
                 {this.props.isPlaying2? "The user is playing now" : "Play" }
             </button>
 
